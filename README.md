@@ -26,8 +26,8 @@ University of Science and Technology of China, The Hong Kong Polytechnic Univers
    - Maintains competitive decoding speed compared to existing methods.
 
 ## :hourglass: Updates
-**[2026/03/11] Release pretrained checkpoints for inference.**
-[2026/03/10] Results on benchmarks are now available, see `results/`. 
+**[2026/03/11] Release pretrained checkpoints for inference.**  
+[2026/03/10] Results on benchmarks are now available, see `results/`.   
 [2026/02/26] Initial release of this repo.     
 
 
@@ -153,5 +153,6 @@ This work is implemented based on [StableCodec](https://github.com/LuizScarlet/S
 ## :envelope: Contact
 
 If you have any questions, please feel free to drop me an email: 
+
 
 - zhangtianyu[at]mail.ustc.edu.cn
