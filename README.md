@@ -31,7 +31,7 @@ University of Science and Technology of China, The Hong Kong Polytechnic Univers
 [2026/02/26] Initial release of this repo.     
 
 
-## 😍 Performace
+## 😍 Performance
 1. **Rate-Perception performance:**  
    <p align="center"><img src="assets/p1.jpeg" width="100%"></p>
    <p></p>
@@ -156,4 +156,5 @@ If you have any questions, please feel free to drop me an email:
 
 
 - zhangtianyu[at]mail.ustc.edu.cn
+
 
