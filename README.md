@@ -41,7 +41,7 @@ University of Science and Technology of China, The Hong Kong Polytechnic Univers
 3. **Visual performance:**
    <p align="center"><img src="assets/p3.jpeg" width="100%"></p>
    <p></p>
-4. **Practical coding latency (ms)** on two kinds of GPUs and image resolutions. Both the encoding and decoding process include the autoregressive entropy coding with the entropy model. The best results are highlighted in **bold**, while the best results among ultra-low bitrate codec are <u>underlined</u>. "OOM" means out of memory. We also report the <span style="color: red;">[encoding FPS]</span> for AEIC models:
+4. **Practical coding latency (ms)** on two kinds of GPUs and image resolutions. Both the encoding and decoding process include the autoregressive entropy coding with the entropy model. The best results are highlighted in **bold**, while the best results among ultra-low bitrate codec are <ins>underlined</ins>. "OOM" means out of memory. We also report the 🔴 **[encoding FPS]** for AEIC models:
    <p align="center"><img src="assets/p4.jpeg" width="100%"></p>
    <p></p>
 5. **Complexity** in parameters (M) and MACs (K) per pixel:
@@ -156,3 +156,4 @@ If you have any questions, please feel free to drop me an email:
 
 
 - zhangtianyu[at]mail.ustc.edu.cn
+
