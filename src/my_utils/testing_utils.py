@@ -25,6 +25,7 @@ def parse_args_testing(input_args=None):
     parser.add_argument("--color_fix", default=True, help="Whether or not to use color fix.")
     parser.add_argument("--use_practical_entropy_coding", default=False, action="store_true")
     parser.add_argument("--merge_LoRA", default=True)
+    parser.add_argument("--compile_model", default=True)
     parser.add_argument("--use_tiled_vae", default=True)
     parser.add_argument("--use_tiled_unet", default=True)
     parser.add_argument("--vae_decoder_tiled_size", type=int, default=160, help="Tiled VAE decoder tile size. Switch to 128 if OOM.")

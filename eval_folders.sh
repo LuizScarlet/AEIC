@@ -1,5 +1,5 @@
 #!/bin/bash
 
-python src/evaluate.py \
-    --recon_dir "/PATH/TO/RECONSTRUCTIONS/" \
-    --gt_dir "/PATH/TO/IMAGES/"
+python src/evaluate.py \  
+    --gt_dir="<PATH_TO_DATASET>/Kodak/" \  
+    --recon_dir="<PATH_TO_SAVE_OUTPUTS>/rec/"
