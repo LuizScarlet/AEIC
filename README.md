@@ -9,7 +9,7 @@ Tianyu Zhang, Dong Liu, Chang Wen Chen
 
 University of Science and Technology of China, The Hong Kong Polytechnic University
 
-[![arXiv](https://img.shields.io/badge/arXiv%20paper-2512.12229-b31b1b.svg)](https://arxiv.org/pdf/2512.12229v2)&nbsp;
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2512.12229v2-b31b1b.svg)](https://arxiv.org/pdf/2512.12229v2)&nbsp;
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=LuizScarlet.AEIC)&nbsp;
 
 </div>
@@ -157,6 +157,7 @@ If you have any questions, please feel free to drop me an email:
 
 
 - zhangtianyu[at]mail.ustc.edu.cn
+
 
 
 
