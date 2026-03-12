@@ -85,7 +85,7 @@ cmake ../cpp -DCMAKE_BUILD_TYPE=Release[Debug]
 make -j
 ```
 
-**Step 4: Inference AEIC models**
+**Step 4: Inference for AEIC models**
 
 Please modify the paths in `compress.sh`, then run `bash compress.sh`: 
 ```bash
@@ -157,6 +157,7 @@ If you have any questions, please feel free to drop me an email:
 
 
 - zhangtianyu[at]mail.ustc.edu.cn
+
 
 
 
