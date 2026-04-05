@@ -1,0 +1,29 @@
+training:
+  exp_name: "AEIC_ME_pretrain"
+  max_train_steps: 300000
+  train_patch_size: 512 
+  train_batch_size_total: 8
+
+  train_batch_size_per_gpu: 1     # Default settings on 2x RTX 3090 (24G)
+  gradient_accumulation_steps: 4  # Default settings on 2x RTX 3090 (24G)
+  
+  save_num: 10
+  eval_freq: 100
+  max_grad_norm: 0.1
+  dataloader_num_workers: 8
+  checkpointing_steps: 10000
+  
+  base:
+    lr: 1e-4
+    lambda_rate: 0.8
+    lambda_l2: 2.0
+    lambda_lpips: 1.0
+    lambda_clip: 0.1
+
+  stages:
+    - name: "stage_1"
+      end_step: 280000
+
+    - name: "stage_2"
+      end_step: 1000000000000
+      lr: 5e-5

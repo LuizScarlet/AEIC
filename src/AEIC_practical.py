@@ -13,7 +13,7 @@ class AEIC(OneStepDiffusionDecoder):
     def __init__(self, sd_path=None, args=None):
         super().__init__(sd_path=sd_path, args=args)
         self.add_unet_LoRA(lora_rank_unet=args.lora_rank_unet)
-        self.codec = PixelCodec(codec_type=args.codec_type, lambda_rate=0.)
+        self.codec = PixelCodec(codec_type=args.codec_type)
         self.load_AEIC_state_dict(args.codec_path, merge_LoRA=args.merge_LoRA)
         self.set_inference_mode(args.compile_model)
 
@@ -25,11 +25,11 @@ class AEIC(OneStepDiffusionDecoder):
         self.unet.requires_grad_(False)
         self.vae.requires_grad_(False)
         self.codec.requires_grad_(False)
-
+        
         if compile_model:
-            torch.compile(self.codec)
-            torch.compile(self.vae.decoder)
-            torch.compile(self.unet)
+            self.codec.compile()
+            self.vae.decoder.compile()
+            self.unet.compile()
 
 
     def load_AEIC_state_dict(self, aeic_state_dict_path, merge_LoRA=False):

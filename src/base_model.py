@@ -63,6 +63,7 @@ class OneStepDiffusionDecoder(nn.Module):
         self.vae.decoder = decoder
         self.vae.decoder.forward = types.MethodType(MyVAEDecoder_SD_forward, self.vae.decoder)
         del self.vae.encoder, self.vae.quant_conv, self.vae.post_quant_conv
+
         
         # Prune Unet
         def ResnetBlock2D_remove_time_emb_proj(module):

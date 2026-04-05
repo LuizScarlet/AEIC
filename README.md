@@ -26,8 +26,9 @@ University of Science and Technology of China, The Hong Kong Polytechnic Univers
    - Maintains competitive decoding speed compared to existing methods.
 
 ## :hourglass: Updates
-[TODO] Pack and release training code ...  
-**[2026/03/11] Release pretrained checkpoints for inference.**  
+[TODO] Pack the remaining code ...  
+**[2026/04/06] Release training code for AEIC-ME.**
+[2026/03/11] Release pretrained checkpoints for inference.  
 [2026/03/10] Results on benchmarks are now available, see `results/`.   
 [2026/02/26] Initial release of this repo.     
 
@@ -114,6 +115,30 @@ python src/evaluate.py \
     --gt_dir="<PATH_TO_DATASET>/Kodak/" \  
     --recon_dir="<PATH_TO_SAVE_OUTPUTS>/rec/"
 ```
+
+
+## 🔥 Training
+
+**Preparations**
+
+We perform lightweight training using at most `4x RTX 3090 (24G)` GPUs. Consider adjusting batch_size and gradient accumulation for faster or better training performance.  
+
+Our training data includes:  
+- [Flickr2K](https://github.com/LimBee/NTIRE2017): Contains 2560 2K-resolution images.
+- [DIV2K Training Set](https://data.vision.ee.ethz.ch/cvl/DIV2K/): Contains 800 2K-resolution images.
+- [CLIC](https://archive.compression.cc/challenge/): Contains 585 (CLIC 2020 Training) + 41 (CLIC 2020 Validation) + 60 (CLIC 2021 Test) 2K-resolution images.
+- The first 10K images from [LSDIR](https://huggingface.co/ofsoundof/LSDIR/tree/main).
+
+We use `h5py` to organize training data. To construct a `.hdf5` training file, please refer to `src/my_utils/build_h5.py`.
+
+
+**Train AEIC-ME (Moderate Encoder)**
+
+1. **Pretrain a base model with relaxed bitrates:** `bash pretrain.sh`
+   *Note: You may skip pretraining with our pretrained [AEIC_ME_pretrain.pkl](https://drive.google.com/drive/folders/1vioCW4EIxQiuLkWHKj7xbMi7WAVcWqJI?usp=drive_link).*   
+
+2. **Finetune towards traget bitrates with GAN:** `bash finetune.sh`  
+   *Note: Adjust `base.lambda_rate` in `config/finetune_AEIC_ME.yaml` to reach different ultra-low bitrates.*
 
 
 ## :book: Citation

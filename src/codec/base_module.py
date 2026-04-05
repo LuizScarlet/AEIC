@@ -245,9 +245,8 @@ class RateLossOutput(NamedTuple):
 
 
 class TargetRateModule(nn.Module):
-    def __init__(self, lambda_rate):
+    def __init__(self):
         super().__init__()
-        self.lambda_rate = lambda_rate
 
     def _calc_bits_per_batch(self, likelihoods: Tensor) -> Tensor:
         batch_size = likelihoods.shape[0]
@@ -267,14 +266,14 @@ class TargetRateModule(nn.Module):
         num_pixels = ori_h * ori_w
 
         latent_bpp = self._calc_bits_per_batch(latent_likelihoods) / num_pixels
-        quantized_latent_bpp = (self._calc_bits_per_batch(quantized_latent_likelihoods) / num_pixels)
+        quantized_latent_bpp = self._calc_bits_per_batch(quantized_latent_likelihoods) / num_pixels
         hyper_bpp = self._calc_bits_per_batch(hyper_latent_likelihoods) / num_pixels
-        quantized_hyper_bpp = (self._calc_bits_per_batch(quantized_hyper_latent_likelihoods) / num_pixels)
+        quantized_hyper_bpp = self._calc_bits_per_batch(quantized_hyper_latent_likelihoods) / num_pixels
         total_bpp = latent_bpp + hyper_bpp
         quantized_total_bpp = quantized_latent_bpp + quantized_hyper_bpp
 
         return RateLossOutput(
-            rate_loss=(self.lambda_rate * total_bpp).mean(),
+            rate_loss=total_bpp.mean(),
             quantized_total_bpp=quantized_total_bpp.detach().mean(),
             quantized_latent_bpp=quantized_latent_bpp.detach().mean(),
             quantized_hyper_bpp=quantized_hyper_bpp.detach().mean(),

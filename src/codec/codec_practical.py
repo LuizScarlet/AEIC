@@ -19,7 +19,7 @@ def ste_round(x):
 
 
 class PixelCodec(nn.Module):
-    def __init__(self, codec_type = "AEIC-ME", lambda_rate = 0.):
+    def __init__(self, codec_type = "AEIC-ME"):
         super().__init__()
 
         if codec_type == "AEIC-ME":
@@ -49,7 +49,7 @@ class PixelCodec(nn.Module):
         self.gaussian_conditional = PracticalGaussianConditional(None)
         self.masks = {}
 
-        self.rate = TargetRateModule(lambda_rate)
+        self.rate = TargetRateModule()
         
 
     def forward(self):
