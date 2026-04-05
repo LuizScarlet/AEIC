@@ -27,7 +27,7 @@ University of Science and Technology of China, The Hong Kong Polytechnic Univers
 
 ## :hourglass: Updates
 [TODO] Pack the remaining code ...  
-**[2026/04/06] Release training code for AEIC-ME.**
+**[2026/04/06] Release training code for AEIC-ME.**  
 [2026/03/11] Release pretrained checkpoints for inference.  
 [2026/03/10] Results on benchmarks are now available, see `results/`.   
 [2026/02/26] Initial release of this repo.     
@@ -119,9 +119,7 @@ python src/evaluate.py \
 
 ## 🔥 Training
 
-**Preparations**
-
-We perform lightweight training using at most `4x RTX 3090 (24G)` GPUs. Consider adjusting batch_size and gradient accumulation for faster or better training performance.  
+**Step 1: Prepare your datasets for training**  
 
 Our training data includes:  
 - [Flickr2K](https://github.com/LimBee/NTIRE2017): Contains 2560 2K-resolution images.
@@ -132,9 +130,11 @@ Our training data includes:
 We use `h5py` to organize training data. To construct a `.hdf5` training file, please refer to `src/my_utils/build_h5.py`.
 
 
-**Train AEIC-ME (Moderate Encoder)**
+**Step 2: Train AEIC-ME (Moderate Encoder)**  
 
-1. **Pretrain a base model with relaxed bitrates:** `bash pretrain.sh`
+We perform lightweight training using at most `4x RTX 3090 (24G)` GPUs. Consider adjusting batch_size and gradient accumulation for faster or better training performance.  
+
+1. **Pretrain a base model with relaxed bitrates:** `bash pretrain.sh`  
    *Note: You may skip pretraining with our pretrained [AEIC_ME_pretrain.pkl](https://drive.google.com/drive/folders/1vioCW4EIxQiuLkWHKj7xbMi7WAVcWqJI?usp=drive_link).*   
 
 2. **Finetune towards traget bitrates with GAN:** `bash finetune.sh`  
