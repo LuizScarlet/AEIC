@@ -137,7 +137,7 @@ We perform lightweight training using at most `4x RTX 3090 (24G)` GPUs. Consider
 1. **Pretrain a base model with relaxed bitrates:** `bash pretrain.sh`  
    *Note: You may skip pretraining with our pretrained [AEIC_ME_pretrain.pkl](https://drive.google.com/drive/folders/1vioCW4EIxQiuLkWHKj7xbMi7WAVcWqJI?usp=drive_link).*   
 
-2. **Finetune towards traget bitrates with GAN:** `bash finetune.sh`  
+2. **Finetune towards target bitrates with GAN:** `bash finetune.sh`  
    *Note: Adjust `base.lambda_rate` in `config/finetune_AEIC_ME.yaml` to reach different ultra-low bitrates.*
 
 
